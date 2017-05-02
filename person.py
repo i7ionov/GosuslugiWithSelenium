@@ -1,5 +1,6 @@
 from selenium import webdriver
 import argparse
+import os
 import time
 
 
@@ -58,7 +59,7 @@ f.click()
 time.sleep(10)  # секунды
 # загрузка файла
 f = driver.find_element_by_xpath("//div[@id='form_attestat.FormStep75.Panel138.FieldUpload380']/div[3]/input")
-f.send_keys("C:\\Users\\ivsemionov\\Desktop\\Code\\Django\\GosuslugiWithSelenium\\1.pdf")
+f.send_keys(os.path.dirname(os.path.realpath(__file__))+"\\1.pdf")
 time.sleep(2)  # секунды
 # next
 f = driver.find_element_by_id("__nextStep")
