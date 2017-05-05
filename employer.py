@@ -1,6 +1,7 @@
 from selenium import webdriver
 import argparse
 import time
+import os
 
 
 def create_parser():
@@ -36,7 +37,7 @@ time.sleep(4)  # секунды
 org = driver.find_element_by_id("org0")
 assert org.get_attribute("onclick") == 'orgPage.selectOrg(0);'
 org.click()
-time.sleep(4)  # секунды
+time.sleep(10)  # секунды
 # нажимаем кнопку новый черновик заявления
 but = driver.find_element_by_class_name("draft-new-button")
 but.click()
@@ -108,23 +109,26 @@ f.click()
 time.sleep(10)  # секунды
 # этап 3
 # Копии учредительных документов
-f = driver.find_element_by_id("p1beul09fgctacr413tj1p5st8o0_html5")
-f.send_keys("C:\\usr\\1.pdf")
+f = driver.find_element_by_xpath("//div[@id='Form5935949.FormStep3.Panel_Doc.doc1']/div[3]/input")
+f.send_keys(os.path.dirname(os.path.realpath(__file__))+"\\1.pdf")
 time.sleep(2)  # секунды
 # Опись прилагаемых документов
-f = driver.find_element_by_id("p1beul09fk17js1b7dufv1utc16e31_html5")
-f.send_keys("C:\\usr\\1.pdf")
+f = driver.find_element_by_xpath("//div[@id='Form5935949.FormStep3.Panel_Doc.doc2']/div[3]/input")
+f.send_keys(os.path.dirname(os.path.realpath(__file__))+"\\1.pdf")
 time.sleep(2)  # секунды
 # Копия квалификационного аттестата
-f = driver.find_element_by_id("p1beul09fp5931rfc19qu1ri7sd32_html5")
-f.send_keys("C:\\usr\\1.pdf")
+f = driver.find_element_by_xpath("//div[@id='Form5935949.FormStep3.Panel_Doc.doc3']/div[3]/input")
+f.send_keys(os.path.dirname(os.path.realpath(__file__))+"\\1.pdf")
 time.sleep(2)  # секунды
 # Копия приказа о назначении должностного лица
-f = driver.find_element_by_id("p1beul09ftrt01ndv134l12oifr53_html5")
-f.send_keys("C:\\usr\\1.pdf")
+f = driver.find_element_by_xpath("//div[@id='Form5935949.FormStep3.Panel_Doc.AppointingOrder']/div[3]/input")
+f.send_keys(os.path.dirname(os.path.realpath(__file__))+"\\1.pdf")
 time.sleep(2)  # секунды
 # next
 f = driver.find_element_by_id("__nextStep")
 f.click()
 time.sleep(10)  # секунды
-
+# next
+f = driver.find_element_by_id("__nextStep")
+f.click()
+time.sleep(10)  # секунды
