@@ -41,7 +41,7 @@ time.sleep(10)  # секунды
 # нажимаем кнопку новый черновик заявления
 but = driver.find_element_by_class_name("draft-new-button")
 but.click()
-time.sleep(10)  # секунды
+time.sleep(20)  # секунды
 # Данные документа, подтверждающего факт внесения сведений о юридическом лице в ЕГРЮЛ
 f = driver.find_element_by_xpath("//div[@id='Form5935949.FormStep1.UL.sved_ul']/div/textarea")
 f.send_keys("123")
